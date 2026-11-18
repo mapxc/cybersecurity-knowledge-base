@@ -1,0 +1,106 @@
+      БАЗОВЫЕ ПОНЯТИЯ И АРХИТЕКТУРА СЕТЕЙ
+  LAN — Local Area Network. Локальная сеть. 
+Это группа компов соедененных между собой, в пределах одного места.
+Она обьединияет устройства для быстрого обмена файлами и общего доступа к принтеру или интернету.
+
+  WLAN — Wireless Local Area Network.
+Та же локальная сеть, только беспроводная.
+
+  WAN — Wide Area Network. Глобальная сеть.
+Всемирный интернет.
+
+  OSI — Open Systems Interconnection
+# Визуальная схема модели OSI
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5fe', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#fff'}}}%%
+graph TD
+    %% Настройка цветов и стилей
+    classDef layer fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef proto fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5,color:#333;
+
+    %% Основные уровни (сверху вниз)
+    Sub7("7. Прикладной<br/>(Application)"):::layer
+    Sub6("6. Представления<br/>(Presentation)"):::layer
+    Sub5("5. Сеансовый<br/>(Session)"):::layer
+    Sub4("4. Транспортный<br/>(Transport)"):::layer
+    Sub3("3. Сетевой<br/>(Network)"):::layer
+    Sub2("2. Канальный<br/>(Data Link)"):::layer
+    Sub1("1. Физический<br/>(Physical)"):::layer
+
+    %% Соединение уровней
+    Sub7 --> Sub6
+    Sub6 --> Sub5
+    Sub5 --> Sub4
+    Sub4 --> Sub3
+    Sub3 --> Sub2
+    Sub2 --> Sub1
+
+    %% Примеры протоколов (выносные блоки)
+    P7(HTTP, DNS, SSH, FTP):::proto
+    P6(SSL/TLS, JPEG, MP3):::proto
+    P5(RPC, NetBIOS, Sockets):::proto
+    P4(TCP, UDP, Порты):::proto
+    P3(IP, ICMP, Маршрутизаторы):::proto
+    P2(Ethernet, Wi-Fi, Свитчи):::proto
+    P1(Кабели, Радиоволны, Хабы):::proto
+
+    %% Связь уровней с примерами
+    Sub7 ~~~ P7
+    Sub6 ~~~ P6
+    Sub5 ~~~ P5
+    Sub4 ~~~ P4
+    Sub3 ~~~ P3
+    Sub2 ~~~ P2
+    Sub1 ~~~ P1
+
+    %% Направление потока данных
+    NoteSend(НАПРАВЛЕНИЕ ОТПРАВКИ: Сверху вниз) --> Sub7
+    NoteRec(НАПРАВЛЕНИЕ ПОЛУЧЕНИЯ: Снизу вверх) -.-> Sub1
+
+    %% Стилизация для темной темы GitHub (опционально, но полезно)
+    %% Если схема выглядит плохо на темном фоне, убери комментарии ниже:
+    %% linkStyle default stroke:#fff,fill:none;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IP — Internet Protocol
+Универсальный цифровой адрес компа в сети. Как почтовый адрес
+
+  MAC — Media Access Control
+Заводской адрес сетевой карты, НЕ МЕНЯЕТСЯ.
+
+  DNS — Domain Name System
+Телефонная книга инета, переводит имя сайта (домен) в его IP
+
+  DHCP — Dynamic Host Configuration Protocol
+Автоматический раздатчик IP адресов при подключении к WiFi
+
+  TCP — Transmission Control Protocol
+надежная доставка данных по сети с проверкой, что все дошло
+
+
+
+
+
+
+
+
+
+
+
+
